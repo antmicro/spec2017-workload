@@ -80,7 +80,7 @@ def handleSpeed(outDir, dataset):
         if resDF is None:
             resDF = pd.read_csv(csvFile, index_col=0)
         else:
-            resDF = resDF.append(pd.read_csv(csvFile, index_col=0))
+            resDF = pd.concat((resDF, pd.read_csv(csvFile, index_col=0)))
 
     # To speed up the firesim run, xz is split into multiple concurrent runs of
     # different parts of the benchmark. We just recombine here.
